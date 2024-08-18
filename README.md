@@ -28,7 +28,7 @@ Make it work, Make it beautiful and organized, Then make it fast.
 	- Not using SOLID principles
 	- Not using best practices
 	- Not using production grade ecosystem
-	- Other potential improvements: Code smells, Improve speed/performance
+	- Other potential improvements: Code smells, Linting, Improve speed/performance
 3. Iterate on fixing the issues so that the codebase will be 
 production grade.
 
