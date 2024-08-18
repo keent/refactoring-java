@@ -17,32 +17,22 @@ public class RentalInfo {
     this.rentalCalculator = rentalCalculator;
   }
 
-  public String statement(Customer customer) {
-    HashMap<String, Movie> movies = movieRepository.getMovies();
-
+  public double calculateTotalAmount(Customer customer) {
     double totalAmount = 0;
-    int frequentEnterPoints = 0;
-    String result = "Rental Record for " + customer.getName() + "\n";
     for (MovieRental r : customer.getRentals()) {
-
-      // Determine amount for each movie
-      double thisAmount = rentalCalculator.calculateAmount(movies.get(r.getMovieId()), r);
-
-      // Add frequent bonus points
-      frequentEnterPoints++;
-
-      // Add bonus for a two day new release rental
-      if (movies.get(r.getMovieId()).getCode() == "new" && r.getDays() > 2)
-        frequentEnterPoints++;
-
-      // print figures for this rental
-      result += "\t" + movies.get(r.getMovieId()).getTitle() + "\t" + thisAmount + "\n";
-      totalAmount += thisAmount;
+      totalAmount += rentalCalculator.calculateAmount(movieRepository.getMovies().get(r.getMovieId()), r);
     }
-    // add footer lines
-    result += "Amount owed is " + totalAmount + "\n";
-    result += "You earned " + frequentEnterPoints + " frequent points\n";
-
-    return result;
+    return totalAmount;
   }
+
+  public int calculateFrequentEnterPoints(Customer customer) {
+    int frequentEnterPoints = 0;
+    for (MovieRental r : customer.getRentals()) {
+      frequentEnterPoints++;
+      if (movieRepository.getMovies().get(r.getMovieId()).getCode().equals("new") && r.getDays() > 2)
+        frequentEnterPoints++;
+    }
+    return frequentEnterPoints;
+  }
+
 }
