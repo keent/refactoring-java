@@ -3,6 +3,7 @@ import java.util.Arrays;
 import customer.Customer;
 import movie.MovieRental;
 import movie.MovieRepository;
+import rental.RentalCalculator;
 import rental.RentalInfo;
 
 public class Main {
@@ -11,7 +12,8 @@ public class Main {
     String expected = "Rental Record for C. U. Stomer\n\tYou've Got Mail\t3.5\n\tMatrix\t2.0\nAmount owed is 5.5\nYou earned 2 frequent points\n";
 
     MovieRepository movieRepository = new MovieRepository();
-    RentalInfo rentalInfo = new RentalInfo(movieRepository);
+    RentalCalculator rentalCalculator = new RentalCalculator();
+    RentalInfo rentalInfo = new RentalInfo(movieRepository, rentalCalculator);
 
     String result = rentalInfo
         .statement(new Customer("C. U. Stomer", Arrays.asList(new MovieRental("F001", 3), new MovieRental("F002", 1))));
