@@ -35,6 +35,7 @@ production grade.
 ## To run the test:
 
 ```
-javac src/*.java
-java -cp src Main
+cd src
+javac customer/*.java movie/*.java rental/*.java Main.java
+java Main
 ```

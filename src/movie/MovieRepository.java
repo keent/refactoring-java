@@ -1,3 +1,5 @@
+package movie;
+
 import java.util.HashMap;
 
 public class MovieRepository {

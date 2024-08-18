@@ -1,4 +1,11 @@
+package rental;
+
 import java.util.HashMap;
+
+import customer.Customer;
+import movie.Movie;
+import movie.MovieRental;
+import movie.MovieRepository;
 
 public class RentalInfo {
 

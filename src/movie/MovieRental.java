@@ -1,3 +1,5 @@
+package movie;
+
 public class MovieRental {
     private String movieId;
     private int days;

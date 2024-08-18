@@ -1,5 +1,10 @@
 import java.util.Arrays;
 
+import customer.Customer;
+import movie.MovieRental;
+import movie.MovieRepository;
+import rental.RentalInfo;
+
 public class Main {
 
   public static void main(String[] args) {
