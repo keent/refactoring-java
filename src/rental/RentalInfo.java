@@ -3,6 +3,7 @@ package rental;
 import customer.Customer;
 import movie.MovieRental;
 import movie.IMovieRepository;
+import movie.Movie;
 import movie.MovieGenre;
 
 public class RentalInfo {
@@ -17,8 +18,11 @@ public class RentalInfo {
 
   public double calculateTotalAmount(Customer customer) {
     double totalAmount = 0;
-    for (MovieRental r : customer.getRentals()) {
-      totalAmount += rentalCalculator.calculateAmount(movieRepository.getMovies().get(r.getMovieId()), r);
+    for (MovieRental rental : customer.getRentals()) {
+      String movieId = rental.getMovieId();
+      Movie movie = movieRepository.getMovies().get(movieId);
+      double rentalAmount = rentalCalculator.calculateAmount(movie, rental);
+      totalAmount += rentalAmount;
     }
     return totalAmount;
   }
@@ -27,8 +31,14 @@ public class RentalInfo {
     int frequentEnterPoints = 0;
     for (MovieRental r : customer.getRentals()) {
       frequentEnterPoints++;
-      if (movieRepository.getMovies().get(r.getMovieId()).getCode().equals(MovieGenre.NEW) && r.getDays() > 2)
+      String movieId = r.getMovieId();
+      Movie movie = movieRepository.getMovies().get(movieId);
+      boolean isNewRelease = movie.getCode().equals(MovieGenre.NEW);
+      boolean isRentedForMoreThanTwoDays = r.getDays() > 2;
+
+      if (isNewRelease && isRentedForMoreThanTwoDays) {
         frequentEnterPoints++;
+      }
     }
     return frequentEnterPoints;
   }
