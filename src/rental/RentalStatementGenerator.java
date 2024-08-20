@@ -22,27 +22,46 @@ public class RentalStatementGenerator {
 
         double totalAmount = 0;
         int frequentEnterPoints = 0;
-        String result = "Rental Record for " + customer.getName() + "\n";
-        for (MovieRental r : customer.getRentals()) {
+        StringBuilder result = new StringBuilder(generateHeader(customer));
 
-            // Calculate amount for each movie
-            // Add frequent bonus points
-            // Add bonus for a two day new release rental
-            // Print figures for this rental
+        for (MovieRental rental : customer.getRentals()) {
+            Movie movie = movies.get(rental.getMovieId());
 
-            double thisAmount = rentalCalculator.calculateAmount(movies.get(r.getMovieId()), r);
-            frequentEnterPoints++;
+            double thisAmount = rentalCalculator.calculateAmount(movie, rental);
 
-            if (movies.get(r.getMovieId()).getCode().equals(MovieGenre.NEW) && r.getDays() > 2)
-                frequentEnterPoints++;
+            frequentEnterPoints += calculateFrequentEnterPoints(movie, rental);
 
-            result += "\t" + movies.get(r.getMovieId()).getTitle() + "\t" + thisAmount + "\n";
+            result.append(generateRentalLine(movie, thisAmount));
             totalAmount += thisAmount;
         }
-        // add footer lines
-        result += "Amount owed is " + totalAmount + "\n";
-        result += "You earned " + frequentEnterPoints + " frequent points\n";
 
-        return result;
+        result.append(generateFooter(totalAmount, frequentEnterPoints));
+        return result.toString();
     }
+
+    private int calculateFrequentEnterPoints(Movie movie, MovieRental rental) {
+        int points = 1;
+        if (isBonusApplicable(movie, rental)) {
+            points++;
+        }
+        return points;
+    }
+
+    private boolean isBonusApplicable(Movie movie, MovieRental rental) {
+        return movie.getCode().equals(MovieGenre.NEW) && rental.getDays() > 2;
+    }
+
+    private String generateHeader(Customer customer) {
+        return "Rental Record for " + customer.getName() + "\n";
+    }
+
+    private String generateRentalLine(Movie movie, double amount) {
+        return "\t" + movie.getTitle() + "\t" + amount + "\n";
+    }
+
+    private String generateFooter(double totalAmount, int frequentEnterPoints) {
+        return "Amount owed is " + totalAmount + "\n" +
+                "You earned " + frequentEnterPoints + " frequent points\n";
+    }
+
 }
