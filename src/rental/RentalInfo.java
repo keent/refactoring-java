@@ -1,18 +1,15 @@
 package rental;
 
-import java.util.HashMap;
-
 import customer.Customer;
-import movie.Movie;
 import movie.MovieRental;
-import movie.MovieRepository;
+import movie.InMemoryMovieRepository;
 
 public class RentalInfo {
 
-  private MovieRepository movieRepository;
+  private InMemoryMovieRepository movieRepository;
   private RentalCalculator rentalCalculator;
 
-  public RentalInfo(MovieRepository movieRepository, RentalCalculator rentalCalculator) {
+  public RentalInfo(InMemoryMovieRepository movieRepository, RentalCalculator rentalCalculator) {
     this.movieRepository = movieRepository;
     this.rentalCalculator = rentalCalculator;
   }

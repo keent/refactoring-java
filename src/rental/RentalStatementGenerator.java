@@ -4,14 +4,14 @@ import java.util.HashMap;
 
 import customer.Customer;
 import movie.Movie;
-import movie.MovieRepository;
+import movie.InMemoryMovieRepository;
 import movie.MovieRental;
 
 public class RentalStatementGenerator {
-    private MovieRepository movieRepository;
+    private InMemoryMovieRepository movieRepository;
     private RentalCalculator rentalCalculator;
 
-    public RentalStatementGenerator(MovieRepository movieRepository, RentalCalculator rentalCalculator) {
+    public RentalStatementGenerator(InMemoryMovieRepository movieRepository, RentalCalculator rentalCalculator) {
         this.movieRepository = movieRepository;
         this.rentalCalculator = rentalCalculator;
     }

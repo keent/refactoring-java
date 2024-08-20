@@ -1,10 +1,9 @@
 import java.util.Arrays;
 
 import customer.Customer;
+import movie.InMemoryMovieRepository;
 import movie.MovieRental;
-import movie.MovieRepository;
 import rental.RentalCalculator;
-import rental.RentalInfo;
 import rental.RentalStatementGenerator;
 
 public class Main {
@@ -12,7 +11,7 @@ public class Main {
   public static void main(String[] args) {
     String expected = "Rental Record for C. U. Stomer\n\tYou've Got Mail\t3.5\n\tMatrix\t2.0\nAmount owed is 5.5\nYou earned 2 frequent points\n";
 
-    MovieRepository movieRepository = new MovieRepository();
+    InMemoryMovieRepository movieRepository = new InMemoryMovieRepository();
     RentalCalculator rentalCalculator = new RentalCalculator();
     RentalStatementGenerator statementGenerator = new RentalStatementGenerator(movieRepository, rentalCalculator);
 
