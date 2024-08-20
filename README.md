@@ -29,8 +29,18 @@ Make it work, Make it beautiful and organized, Then make it fast.
 	- Not using best practices
 	- Not using production grade ecosystem
 	- Other potential improvements: Code smells, Linting, Improve speed/performance
+
 3. Iterate on fixing the issues so that the codebase will be 
 production grade.
+
+
+## More refactoring ideas
+
+   - Better robust error handling using exceptions
+   - More comprehensive test cases
+   - Functional Programming idioms (not necessary)
+   - Spring boot
+
 
 ## To run mvn test
 ```
