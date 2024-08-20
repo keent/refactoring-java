@@ -2,8 +2,15 @@ package movie;
 
 import java.util.HashMap;
 
-public class MovieRepository {
-    public HashMap<String, Movie> getMovies() {
+public class InMemoryMovieRepository implements IMovieRepository {
+
+    private final HashMap<String, Movie> movies;
+
+    public InMemoryMovieRepository() {
+        this.movies = initializeMovies();
+    }
+
+    public HashMap<String, Movie> initializeMovies() {
 
         HashMap<String, Movie> movies = new HashMap<>();
 
@@ -12,6 +19,11 @@ public class MovieRepository {
         movies.put("F003", new Movie("Cars", MovieGenre.CHILDRENS));
         movies.put("F004", new Movie("Fast & Furious X", MovieGenre.NEW));
 
+        return movies;
+    }
+
+    @Override
+    public HashMap<String, Movie> getMovies() {
         return movies;
     }
 }
