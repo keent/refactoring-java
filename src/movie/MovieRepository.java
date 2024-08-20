@@ -7,10 +7,10 @@ public class MovieRepository {
 
         HashMap<String, Movie> movies = new HashMap<>();
 
-        movies.put("F001", new Movie("You've Got Mail", "regular"));
-        movies.put("F002", new Movie("Matrix", "regular"));
-        movies.put("F003", new Movie("Cars", "childrens"));
-        movies.put("F004", new Movie("Fast & Furious X", "new"));
+        movies.put("F001", new Movie("You've Got Mail", MovieGenre.REGULAR));
+        movies.put("F002", new Movie("Matrix", MovieGenre.REGULAR));
+        movies.put("F003", new Movie("Cars", MovieGenre.CHILDRENS));
+        movies.put("F004", new Movie("Fast & Furious X", MovieGenre.NEW));
 
         return movies;
     }
