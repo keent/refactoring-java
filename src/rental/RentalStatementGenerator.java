@@ -24,17 +24,17 @@ public class RentalStatementGenerator {
         String result = "Rental Record for " + customer.getName() + "\n";
         for (MovieRental r : customer.getRentals()) {
 
-            // Determine amount for each movie
-            double thisAmount = rentalCalculator.calculateAmount(movies.get(r.getMovieId()), r);
-
+            // Calculate amount for each movie
             // Add frequent bonus points
+            // Add bonus for a two day new release rental
+            // Print figures for this rental
+
+            double thisAmount = rentalCalculator.calculateAmount(movies.get(r.getMovieId()), r);
             frequentEnterPoints++;
 
-            // Add bonus for a two day new release rental
             if (movies.get(r.getMovieId()).getCode().equals("new") && r.getDays() > 2)
                 frequentEnterPoints++;
 
-            // print figures for this rental
             result += "\t" + movies.get(r.getMovieId()).getTitle() + "\t" + thisAmount + "\n";
             totalAmount += thisAmount;
         }

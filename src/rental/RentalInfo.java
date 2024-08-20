@@ -2,14 +2,14 @@ package rental;
 
 import customer.Customer;
 import movie.MovieRental;
-import movie.InMemoryMovieRepository;
+import movie.IMovieRepository;
 
 public class RentalInfo {
 
-  private InMemoryMovieRepository movieRepository;
+  private IMovieRepository movieRepository;
   private RentalCalculator rentalCalculator;
 
-  public RentalInfo(InMemoryMovieRepository movieRepository, RentalCalculator rentalCalculator) {
+  public RentalInfo(IMovieRepository movieRepository, RentalCalculator rentalCalculator) {
     this.movieRepository = movieRepository;
     this.rentalCalculator = rentalCalculator;
   }
