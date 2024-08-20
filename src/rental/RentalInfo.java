@@ -3,6 +3,7 @@ package rental;
 import customer.Customer;
 import movie.MovieRental;
 import movie.IMovieRepository;
+import movie.MovieGenre;
 
 public class RentalInfo {
 
@@ -26,7 +27,7 @@ public class RentalInfo {
     int frequentEnterPoints = 0;
     for (MovieRental r : customer.getRentals()) {
       frequentEnterPoints++;
-      if (movieRepository.getMovies().get(r.getMovieId()).getCode().equals("new") && r.getDays() > 2)
+      if (movieRepository.getMovies().get(r.getMovieId()).getCode().equals(MovieGenre.NEW) && r.getDays() > 2)
         frequentEnterPoints++;
     }
     return frequentEnterPoints;

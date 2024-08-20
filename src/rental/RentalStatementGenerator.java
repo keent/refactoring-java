@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import customer.Customer;
 import movie.Movie;
+import movie.MovieGenre;
 import movie.InMemoryMovieRepository;
 import movie.MovieRental;
 
@@ -32,7 +33,7 @@ public class RentalStatementGenerator {
             double thisAmount = rentalCalculator.calculateAmount(movies.get(r.getMovieId()), r);
             frequentEnterPoints++;
 
-            if (movies.get(r.getMovieId()).getCode().equals("new") && r.getDays() > 2)
+            if (movies.get(r.getMovieId()).getCode().equals(MovieGenre.NEW) && r.getDays() > 2)
                 frequentEnterPoints++;
 
             result += "\t" + movies.get(r.getMovieId()).getTitle() + "\t" + thisAmount + "\n";
