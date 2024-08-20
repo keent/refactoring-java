@@ -1,10 +1,10 @@
 import java.util.Arrays;
 
-import customer.Customer;
-import movie.InMemoryMovieRepository;
-import movie.MovieRental;
-import rental.RentalCalculator;
-import rental.RentalStatementGenerator;
+import main.java.customer.Customer;
+import main.java.movie.InMemoryMovieRepository;
+import main.java.movie.MovieRental;
+import main.java.rental.RentalCalculator;
+import main.java.rental.RentalStatementGenerator;
 
 public class Main {
 

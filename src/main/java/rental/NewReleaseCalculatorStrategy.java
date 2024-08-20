@@ -1,6 +1,6 @@
-package rental;
+package main.java.rental;
 
-import movie.MovieRental;
+import main.java.movie.MovieRental;
 
 public class NewReleaseCalculatorStrategy implements IRentalCalculatorStrategy {
     public double calculateAmount(MovieRental rental) {

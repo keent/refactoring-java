@@ -1,10 +1,10 @@
-package rental;
+package main.java.rental;
 
-import customer.Customer;
-import movie.MovieRental;
-import movie.IMovieRepository;
-import movie.Movie;
-import movie.MovieGenre;
+import main.java.customer.Customer;
+import main.java.movie.IMovieRepository;
+import main.java.movie.Movie;
+import main.java.movie.MovieGenre;
+import main.java.movie.MovieRental;
 
 public class RentalInfo {
 

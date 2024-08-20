@@ -1,4 +1,4 @@
-package movie;
+package main.java.movie;
 
 import java.util.Map;
 

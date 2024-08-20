@@ -1,4 +1,4 @@
-package movie;
+package main.java.movie;
 
 public class MovieRental {
     private String movieId;

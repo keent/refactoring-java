@@ -36,6 +36,6 @@ production grade.
 
 ```
 cd src
-javac customer/*.java movie/*.java rental/*.java Main.java
+javac main/java/customer/*.java main/java/movie/*.java main/java/rental/*.java Main.java
 java Main
 ```

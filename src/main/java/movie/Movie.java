@@ -1,4 +1,4 @@
-package movie;
+package main.java.movie;
 
 public class Movie {
     private String title;

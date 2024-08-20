@@ -1,7 +1,7 @@
-package rental;
+package main.java.rental;
 
-import movie.Movie;
-import movie.MovieRental;
+import main.java.movie.Movie;
+import main.java.movie.MovieRental;
 
 public class RentalCalculator {
 

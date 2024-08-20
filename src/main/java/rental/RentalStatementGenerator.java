@@ -1,12 +1,12 @@
-package rental;
+package main.java.rental;
 
 import java.util.HashMap;
 
-import customer.Customer;
-import movie.Movie;
-import movie.MovieGenre;
-import movie.InMemoryMovieRepository;
-import movie.MovieRental;
+import main.java.customer.Customer;
+import main.java.movie.InMemoryMovieRepository;
+import main.java.movie.Movie;
+import main.java.movie.MovieGenre;
+import main.java.movie.MovieRental;
 
 public class RentalStatementGenerator {
     private InMemoryMovieRepository movieRepository;
