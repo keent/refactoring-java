@@ -32,6 +32,10 @@ Make it work, Make it beautiful and organized, Then make it fast.
 3. Iterate on fixing the issues so that the codebase will be 
 production grade.
 
+## To run mvn test
+```
+mvn test
+```
 ## To run the test:
 
 ```
